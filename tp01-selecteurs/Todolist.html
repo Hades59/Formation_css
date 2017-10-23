@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://code.jquery.com/jquery-1.12.3.js"></script>
+    <script>
+    $(function() {
+
+        var $list, $monForm;
+        $list = $('ul');
+        $monForm = $('#monForm');
+
+        $monForm.on('submit', function(e) {
+        e.preventDefault();
+        var text = $('input:text').val();
+        if (text != "") {
+            $list.append('<li>' + text + '</li>');
+            $('input:text').val('');            
+        }
+        });
+
+        $list.on('click', 'li', function() {
+        var $this = $(this);
+        $this.remove();
+        });
+
+    });
+    </script>
+    <style>
+        body {
+          
+        }
+
+        #list_section {
+          background-color: #000099;
+          font-family: Arial, Helvetica;
+          -webkit-border-radius: 5px;
+          -moz-border-radius: 5px;
+          border-radius: 5px;
+          text-align: center;
+          width: 400px;
+
+        }
+
+        h1 {
+          color: white;
+          font-size: 2em;
+        }
+
+        ul {
+        }
+
+        li {
+          background-color: white; 
+          -webkit-border-radius: 10px;
+          -moz-border-radius: 10px;
+          border-radius: 10px;
+          height: 20px;
+
+          list-style-type: none;
+          margin-right: 50px;
+          margin-top: 10px;
+          padding: 10px;
+        }
+
+        p {
+        }
+
+        .item {
+          
+        }
+
+        input[type='text'] {
+          -webkit-border-radius: 3px;
+          -moz-border-radius: 3px;
+          border-radius: 3px;
+          width: 150px;
+        }
+
+        input[type='submit'] {
+          -webkit-border-radius: 8px;
+          -moz-border-radius: 8px;
+          border-radius: 8px;
+        }
+
+        #itemField {
+          margin-top: 60px;
+          width: 60%;
+        }
+    </style>
+</head>
+
+<body>
+  <div id="list_section">
+    <h1 id="header">Todo list</h1>
+    <ul>
+      <li class="item">Une première tâche</li>
+      <li class="item">Une seconde tâche</li>
+    </ul>
+    <form id="monForm">
+      <input type="text" id="itemField" placeholder="Élément" />
+      <input type="submit" id="add" value="Ajouter" />
+    </form>
+  </div>
+</body>
+
+</html>
